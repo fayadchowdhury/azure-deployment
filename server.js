@@ -21,4 +21,10 @@ mongoose.connect(MONGO_URI, mongoOptions)
         console.log(err);
     });
 
-app.listen(PORT);
+app.get('/', (req, res) => {
+   res.send("SUP?");
+});
+
+app.listen(PORT, () => {
+    console.log("Server running on port " + PORT);
+});
