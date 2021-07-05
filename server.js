@@ -13,6 +13,9 @@ const mongoOptions = {
 
 const app = express();
 
+app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname, "public")));
+
 mongoose.connect(MONGO_URI, mongoOptions)
     .then(() => {
         console.log("Database connected successfully");
@@ -22,7 +25,7 @@ mongoose.connect(MONGO_URI, mongoOptions)
     });
 
 app.get('/', (req, res) => {
-   res.send("SUP?");
+   res.render("index");
 });
 
 app.listen(PORT, () => {
