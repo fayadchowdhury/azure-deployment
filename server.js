@@ -29,6 +29,10 @@ app.get('/', (req, res) => {
    res.render("index");
 });
 
+app.get('/enter', (req, res) => {
+    res.render("enter-quote");
+});
+
 app.listen(PORT, () => {
     console.log("Server running on port " + PORT);
 });
