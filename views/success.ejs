@@ -1,0 +1,15 @@
+<%- include('header.ejs') %>
+<div>
+    <form action="/enter" method="GET">
+        <input type="submit" value="Enter another quote" />
+    </form>
+    <form action="/" method="GET">
+        <input type="submit" value="Go back" />
+    </form>
+</div>
+<div>
+    <h1>SUCCESS! The quote, "<%=quote.quote%>" is beautiful!</h1>
+</div>
+</body>
+</html>
+<%- include('footer.ejs') %>
