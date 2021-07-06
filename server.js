@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
+const bodyParser = require("bo")
 
 const { PORT, MONGO_URI } = process.env
 
@@ -16,6 +17,7 @@ const app = express();
 
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 mongoose.connect(MONGO_URI, mongoOptions)
     .then(() => {
@@ -26,7 +28,7 @@ mongoose.connect(MONGO_URI, mongoOptions)
     });
 
 app.get('/', (req, res) => {
-   res.render("index");
+   res.render("index", [{username: "Chink", quote: "To err is human"}]);
 });
 
 app.get('/enter', (req, res) => {
