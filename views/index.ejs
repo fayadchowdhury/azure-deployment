@@ -2,12 +2,12 @@
 <h1>Welcome to the Quotes App!</h1>
 <div>
     <form action="/enter" method="GET">
-        <input type="submit" value="Enter a quote" />
+        <input type="submit" value="Enter a quote" class="btn"/>
     </form>
     <% quotes.forEach(function(quote) { %>
-        <div>
+        <div clas="quote">
             <h2><%=quote.quote%></h2>
-            <p>by <%=quote.username%></p>
+            <p> - by <%=quote.username%></p>
             <hr>
         </div>
     <% })%>
