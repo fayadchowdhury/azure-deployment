@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
-const bodyParser = require("bo")
+const bodyParser = require("body-parser");
 
 const { PORT, MONGO_URI } = process.env
 
