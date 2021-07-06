@@ -1,8 +1,14 @@
 <%- include('header.ejs') %>
 <h1>Welcome to the Quotes App!</h1>
-<div class="btn">
+<div>
     <form action="/enter" method="GET">
         <input type="submit" value="Enter a quote" />
     </form>
+    <% quotes.forEach(function(quote) { %>
+        <div>
+            <h2><%=quote.quote%></h2>
+            <p>by <%=quote.username%></p>
+        </div>
+    <% })%>
 </div>
 <%- include('footer.ejs') %>
