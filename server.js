@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 const bodyParser = require("body-parser");
+const axios = require("axios");
 
 const { PORT, MONGO_URI } = process.env
 
@@ -27,8 +28,10 @@ mongoose.connect(MONGO_URI, mongoOptions)
         console.log(err);
     });
 
-app.get('/', (req, res) => {
-   res.render("index", [{username: "Chink", quote: "To err is human"}]);
+app.get('/', async (req, res) => {
+   const quotesData = await axios.get('127.0.0.1/get');
+   console.log(quotesData);
+   res.render("index", {quotes: [{username: "Chink", quote: "To err is human"}]});
 });
 
 app.get('/enter', (req, res) => {

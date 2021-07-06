@@ -6,7 +6,7 @@ const {
     createQuote
 } = require("../controllers/quotesController");
 
-router.get("/", getAllQuotes);
-router.post("/enter", createQuote);
+router.get("/read", getAllQuotes);
+router.post("/create", createQuote);
 
 module.exports = router;
