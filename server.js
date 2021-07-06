@@ -20,6 +20,9 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: false }));
 
+const homeRoute = require("./routes/quotes");
+app.use("/", homeRoute);
+
 mongoose.connect(MONGO_URI, mongoOptions)
     .then(() => {
         console.log("Database connected successfully");
@@ -29,9 +32,17 @@ mongoose.connect(MONGO_URI, mongoOptions)
     });
 
 app.get('/', async (req, res) => {
-   const quotesData = await axios.get('127.0.0.1/get');
-   console.log(quotesData);
-   res.render("index", {quotes: [{username: "Chink", quote: "To err is human"}]});
+   try
+   {
+       const quotesData = await axios.get('127.0.0.1:80/get');
+       console.log(quotesData);
+       res.render("index", {quotes: [{username: "Chink", quote: "To err is human"}]});
+   }
+   catch (e)
+   {
+       console.log(e.message);
+       res.send(<h1>ERROR</h1>);
+   }
 });
 
 app.get('/enter', (req, res) => {
