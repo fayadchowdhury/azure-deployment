@@ -35,7 +35,6 @@ app.get('/', async (req, res) => {
    try
    {
        const quotesData = await axios.get('http://20.193.247.26/read');
-       console.log(quotesData);
        res.render("index", {quotes: quotesData.data.quotes});
    }
    catch (e)

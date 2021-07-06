@@ -16,7 +16,6 @@ exports.getAllQuotes = async (req, res) => {
 exports.createQuote = async (req, res) => {
   try
   {
-      console.log(req.body);
       const { username, quote } = req.body;
       const newQuote = new QuoteModel({
           username,
@@ -27,7 +26,6 @@ exports.createQuote = async (req, res) => {
   }
   catch (e)
   {
-      console.log(e);
       res.render("failure", {message: e.message});
   }
 };
