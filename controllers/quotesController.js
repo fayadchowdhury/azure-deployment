@@ -3,7 +3,7 @@ const QuoteModel = require("../models/quotes");
 exports.getAllQuotes = async (req, res) => {
     try
     {
-        const quotes = await QuoteModel.find({select: "-__v"});
+        const quotes = await QuoteModel.find();
         res.status(200).json({message: "Success", quotes});
     }
     catch (e)
