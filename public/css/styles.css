@@ -69,16 +69,20 @@ body {
 }
 
 .quote {
-    padding: 20px;
-    background-color: #d4c1c1;
-    color: #090000;
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    font-size: 2.2rem;
 }
 
-.quote>h2 {
+.quote h2 {
     font-style: italic;
     font-size: 20px;
 }
 
-.quote>p {
+.quote p {
     font-size: 15px;
 }
