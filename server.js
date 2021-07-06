@@ -34,14 +34,14 @@ mongoose.connect(MONGO_URI, mongoOptions)
 app.get('/', async (req, res) => {
    try
    {
-       const quotesData = await axios.get('127.0.0.1:80/get');
+       const quotesData = await axios.get('http://20.193.247.26/read');
        console.log(quotesData);
        res.render("index", {quotes: [{username: "Chink", quote: "To err is human"}]});
    }
    catch (e)
    {
        console.log(e.message);
-       res.send(<h1>ERROR</h1>);
+       res.send("<h1>ERROR</h1>");
    }
 });
 
