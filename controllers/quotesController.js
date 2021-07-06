@@ -23,12 +23,11 @@ exports.createQuote = async (req, res) => {
           quote
       });
       await newQuote.save();
-      // res.status(200).json({message: "Success", newQuote});
       res.render("success", {quote: newQuote});
   }
   catch (e)
   {
       console.log(e);
-      res.status(500).json({message: "Internal server error: " + e.message});
+      res.render("failure", {message: e.message});
   }
 };

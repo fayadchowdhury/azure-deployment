@@ -1,0 +1,16 @@
+<%- include('header.ejs') %>
+<div>
+    <form action="/enter" method="GET">
+        <input type="submit" value="Try entering the quote again?" />
+    </form>
+    <form action="/" method="GET">
+        <input type="submit" value="Go back" />
+    </form>
+</div>
+<div>
+    <h1>FAILURE! :(</h1>
+    <p>"<%=message%>"</p>
+</div>
+</body>
+</html>
+<%- include('footer.ejs') %>
